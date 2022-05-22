@@ -37,7 +37,33 @@ const passwordCriteriaPrompt = () => {
 }
 
 const generatePassword = () => {
-  passwordCriteriaPrompt();
+  // STRINGS OF CHARACTERS THAT MAY BE USED BASED ON CRITERIA
+  const upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowerAlphabet = upperAlphabet.toLowerCase();
+  const numbers = "1234567890";
+  const specialCharacters = "!#$%&()*+,-/:;<=>?@[]^_";
+
+  //String of characters that will be randomly selected from for the password
+  let charSelectionPool = "";
+
+  // Criteria object that tells which characters to select from
+  const criteria = passwordCriteriaPrompt();
+debugger;
+  // Add character that can be selected to pool of characters to choose from based on criteria
+  switch (true) {
+    case (criteria.upper):
+      charSelectionPool = charSelectionPool.concat(upperAlphabet);
+    
+    case (criteria.lower):
+      charSelectionPool = charSelectionPool.concat(lowerAlphabet);
+
+    case (criteria.num):
+      charSelectionPool = charSelectionPool.concat(numbers);
+
+    case (criteria.special):
+      charSelectionPool = charSelectionPool.concat(specialCharacters);
+  }
+
 }
 
 // Get references to the #generate element
