@@ -25,12 +25,13 @@ The purpose of this project is create a password generator to demonstrate my Jav
 
 ## Setup
 
-To run this project clone the repository and open in your prefered code editor. Open index.html in your browser.
+* To run this project clone the repository and open in your prefered code editor. Open index.html in your browser.
+* Click generate password button and follow prompts and the application will generate a password.
 
 ---
 
 ## Webpage Demo
 
-Link to webpage: [**Jaryd Knight Portfolio**](https://jarydknight.github.io/Portfolio/)
+Link to webpage: [**Jaryd Knight Portfolio**](https://jarydknight.github.io/Password-Generator/)
 
-![screenshot of webpage](./assets/images/jarydknight.github.io_Portfolio_.png)
+![screenshot of webpage](./assets/images/jarydknight.github.io_Password-Generator_%20.png)
