@@ -25,6 +25,7 @@ const passwordCriteriaPrompt = () => {
     specialChar = window.confirm("Do you want to include special characters in your password?");
   }
 
+  //create an object of password criteria to return
   const passwordCriteria = {
     len: passwordLength,
     upper: upperCaseChar,
@@ -57,28 +58,29 @@ const generatePassword = () => {
   const criteria = passwordCriteriaPrompt();
 
   // Add chars to random pool of chars that pw can be selected from and add random char to start of pw to ensure that char type is used at least once in password
-  switch (true) {
-    case (criteria.upper):
-      charSelectionPool = charSelectionPool.concat(upperAlphabet);
+  if (criteria.upper) {
+    charSelectionPool = charSelectionPool.concat(upperAlphabet);
       pw = pw.concat(randomCharSelector(upperAlphabet));
-    
-    case (criteria.lower):
-      charSelectionPool = charSelectionPool.concat(lowerAlphabet);
+  }
+
+  if (criteria.lower) {
+    charSelectionPool = charSelectionPool.concat(lowerAlphabet);
       pw = pw.concat(randomCharSelector(lowerAlphabet));
+  }
 
-    case (criteria.num):
-      charSelectionPool = charSelectionPool.concat(numbers);
-      pw = pw.concat(randomCharSelector(numbers));
+  if (criteria.num) {
+    charSelectionPool = charSelectionPool.concat(numbers);
+    pw = pw.concat(randomCharSelector(numbers));
+  }
 
-    case (criteria.special):
-      charSelectionPool = charSelectionPool.concat(specialCharacters);
-      pw = pw.concat(randomCharSelector(specialCharacters));
+  if (criteria.special) {
+    charSelectionPool = charSelectionPool.concat(specialCharacters);
+    pw = pw.concat(randomCharSelector(specialCharacters));
   }
 
   // get the number of criteria that have been selected
   let numOfCriteria = 0;
   const arr = Object.entries(criteria);
-
   //i starts at 1 because the first entry is the length of the pw which is not counted as criteria for this
   for (let i = 1; i < arr.length; i++) {
     if (arr[i][1]) {
