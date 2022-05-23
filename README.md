@@ -32,6 +32,6 @@ The purpose of this project is create a password generator to demonstrate my Jav
 
 ## Webpage Demo
 
-Link to webpage: [**Jaryd Knight Portfolio**](https://jarydknight.github.io/Password-Generator/)
+Link to webpage: [**Password Generator**](https://jarydknight.github.io/Password-Generator/)
 
 ![screenshot of webpage](./assets/images/jarydknight.github.io_Password-Generator_%20.png)
