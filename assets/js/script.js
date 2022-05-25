@@ -1,5 +1,6 @@
 // Assignment code here
 
+//Function that prompts user for criteria inputs and returns an object with those inputs
 const passwordCriteriaPrompt = () => {
  
   //PASSWORD LENGTH CRITERIA PROMPT
@@ -50,6 +51,7 @@ const generatePassword = () => {
   const numbers = "1234567890";
   const specialCharacters = "!#$%&()*+,-/:;<=>?@[]^_";
   let pw = "";
+  let numOfCriteria = 0;
 
   //String of characters that will be randomly selected from for the password
   let charSelectionPool = "";
@@ -61,34 +63,28 @@ const generatePassword = () => {
   if (criteria.upper) {
     charSelectionPool = charSelectionPool.concat(upperAlphabet);
       pw = pw.concat(randomCharSelector(upperAlphabet));
+      numOfCriteria ++;
   }
 
   if (criteria.lower) {
     charSelectionPool = charSelectionPool.concat(lowerAlphabet);
       pw = pw.concat(randomCharSelector(lowerAlphabet));
+      numOfCriteria ++;
   }
 
   if (criteria.num) {
     charSelectionPool = charSelectionPool.concat(numbers);
     pw = pw.concat(randomCharSelector(numbers));
+    numOfCriteria ++;
   }
 
   if (criteria.special) {
     charSelectionPool = charSelectionPool.concat(specialCharacters);
     pw = pw.concat(randomCharSelector(specialCharacters));
+    numOfCriteria ++;
   }
 
-  // get the number of criteria that have been selected
-  let numOfCriteria = 0;
-  const arr = Object.entries(criteria);
-  //i starts at 1 because the first entry is the length of the pw which is not counted as criteria for this
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i][1]) {
-      numOfCriteria ++;
-    }
-  }
-
-  // Add characters from pool of approved characters to password
+  // Add characters from pool of approved characters to password. Start at numOfCriteria instead of 0 because 1 char has been added to the string for each criteria selected
   for (let i = numOfCriteria; i < criteria.len; i ++) {
     pw = pw.concat(randomCharSelector(charSelectionPool));
   }
